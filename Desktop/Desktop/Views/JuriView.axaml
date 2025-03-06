@@ -1,0 +1,56 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:vm="using:Desktop.ViewModels"
+			 xmlns:v="using:Desktop.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
+             x:Class="Desktop.Views.JuriView"
+			 x:DataType="vm:JuriViewModel"
+			 Background="#ccc3da">
+	<StackPanel Orientation="Vertical">
+		<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="10">
+			<TextBlock Foreground="#09244b" Text="Жюри" FontSize="25" FontWeight="Bold"/>
+		</StackPanel>
+			<ListBox ItemsSource="{Binding JuriList}" Grid.Column="1" Name="JuriList" Background="#09244b" Width="600" Height="500">
+				<ListBox.ItemTemplate >
+					<DataTemplate >
+						<Border BorderThickness="1" BorderBrush="Black" Margin="5" Padding="10">
+							<StackPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Visible">
+								<StackPanel>
+									<Image Source="{Binding Image}" Width="100" Height="100"/>
+
+								</StackPanel>
+								<StackPanel Margin="10">
+									<TextBlock Text="{Binding NameFirst}" FontWeight="Bold"/>
+									<TextBlock Text="{Binding NameLast}" FontWeight="Bold"/>
+									<TextBlock Text="{Binding Patronymic}" FontWeight="Bold"/>
+									<TextBlock Text="{Binding NumberPhone, StringFormat=Номер телефона: +{0}}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		<Button Command="{Binding NavigatetoOrganize}" Background="#09244b" HorizontalAlignment="Center" Margin="10" Width="100" IsVisible="{Binding Isvisiable1}">
+			<Button.Styles>
+				<Style>
+					<Style.Resources>
+						<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+					</Style.Resources>
+				</Style>
+			</Button.Styles>
+			<TextBlock Foreground="#ccc3da" Text="Назад" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		<Button Command="{Binding NavigatetoLogin}" Background="#09244b" HorizontalAlignment="Center" Margin="10" Width="100" IsVisible="{Binding Isvisiable}">
+			<Button.Styles>
+				<Style>
+					<Style.Resources>
+						<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+					</Style.Resources>
+				</Style>
+			</Button.Styles>
+			<TextBlock Foreground="#ccc3da" Text="Назад" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+		</Button>
+		</StackPanel>
+</UserControl>

@@ -1,0 +1,95 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:vm="using:Desktop.ViewModels"
+			 xmlns:v="using:Desktop.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1366" d:DesignHeight="800"
+             x:Class="Desktop.Views.OrganizeView"
+			 x:DataType="vm:OrganizeViewModel"
+			 Background="#ccc3da">
+	<StackPanel Orientation="Vertical" >
+		
+	<StackPanel HorizontalAlignment="Center" Grid.Column="1">
+			<TextBlock Foreground="#09244b" Text="Окно Организатора" FontSize="25" FontWeight="Bold" Margin="20"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal">
+			<StackPanel Width="525">
+				
+				<Image Source="{Binding Ava}" Width="400" Height="500"/>
+					<StackPanel Orientation="Horizontal">
+						<StackPanel>
+							<Button Background="#09244b" Width="200" Command="{Binding NavigatetoProf}" Height="100" Margin="40,0,0,0" CornerRadius="3">
+								<Button.Styles>
+									<Style>
+										<Style.Resources>
+											<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+										</Style.Resources>
+									</Style>
+								</Button.Styles>
+								<TextBlock Foreground="#ccc3da" Text="Мой профиль" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+							</Button>
+						</StackPanel>
+						<StackPanel>
+							<Button Background="#09244b" Width="200" Command="{Binding NavigatetoLogin}" Height="100" Margin="40,0,0,0" CornerRadius="3">
+								<Button.Styles>
+									<Style>
+										<Style.Resources>
+											<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+										</Style.Resources>
+									</Style>
+								</Button.Styles>
+								<TextBlock Foreground="#ccc3da" Text="Выйти" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+							</Button>
+						</StackPanel>
+					</StackPanel>
+				</StackPanel>
+			<StackPanel HorizontalAlignment="Center">
+					<TextBlock Foreground="#09244b" Text="{Binding Message}" FontSize="16" HorizontalAlignment="Center" Margin="10"/>
+					<TextBlock Foreground="#09244b" Text="{Binding Message2}" FontSize="16" HorizontalAlignment="Center" Margin="10"/>
+				<Button Background="#09244b" Command="{Binding NavigatetoEvent}" Width="300" Height="150" Margin="0,20,0,0" CornerRadius="3">
+					<Button.Styles>
+						<Style>
+							<Style.Resources>
+								<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+							</Style.Resources>
+						</Style>
+					</Button.Styles>
+					<TextBlock Foreground="#ccc3da" Text="Мероприятия" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+				</Button>
+				<Button Background="#09244b" Command="{Binding NavigatetoParticipant}" Width="300" Height="150" Margin="0,20,0,0" CornerRadius="3">
+					<Button.Styles>
+						<Style>
+							<Style.Resources>
+								<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+							</Style.Resources>
+						</Style>
+					</Button.Styles>
+					<TextBlock Foreground="#ccc3da" Text="Участники" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+				</Button>
+				<Button Command="{Binding NavigatetoJuri}" Background="#09244b" Width="300" Height="150" Margin="0,20,0,0" CornerRadius="3" IsEnabled="True" IsVisible="True">
+					<Button.Styles>
+						<Style>
+							<Style.Resources>
+								<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+							</Style.Resources>
+						</Style>
+					</Button.Styles>
+					<TextBlock Foreground="#ccc3da" Text="Жюри" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+				</Button>
+			</StackPanel>
+			<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+				<Button Background="#09244b" HorizontalAlignment="Center" Command="{Binding NavigatetoRegister}" VerticalAlignment="Center" Margin="50,110,0,0" Width="300" Height="200" CornerRadius="3">
+					<Button.Styles>
+						<Style>
+							<Style.Resources>
+								<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+							</Style.Resources>
+						</Style>
+					</Button.Styles>
+					<TextBlock Foreground="#ccc3da" Text="Регистрация жюри/модератора" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+				</Button>
+			</StackPanel>
+		</StackPanel>
+	</StackPanel>	
+</UserControl>

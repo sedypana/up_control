@@ -1,0 +1,59 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:vm="using:Desktop.ViewModels"
+			 xmlns:v="using:Desktop.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Desktop.Views.OrganizeProfileView"
+			 x:DataType="vm:OrganizeProfileViewModel"
+			 Background="#ccc3da">
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+		<TextBlock Foreground="#09244b" Text="Мой профиль" HorizontalAlignment="Center" Margin="20" FontSize="25"/>
+		<Image Source="{Binding Image}" Width="400" Height="200"/>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+			<StackPanel Margin="10" Orientation="Horizontal">
+				<TextBlock Foreground="#09244b" Text="Фио:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+			<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding NameFirst}" Width="150"/>
+			</StackPanel>
+			<StackPanel Margin="10">
+			<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding NameLast}" Margin="5,0,0,0"  Width="150"/>
+			</StackPanel>
+			<StackPanel Margin="10">
+			<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding Patronymic}" Margin="5,0,0,0"  Width="150"/>
+			</StackPanel>
+				
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+		<TextBlock  Foreground="#09244b" Text="Номер телефона:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+			<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding NumberPhone}" HorizontalAlignment="Center" Width="150"/>
+			</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			<TextBlock Foreground="#09244b" Text="Дата рождения:" VerticalAlignment="Center" Margin="0,7,10,0"/>
+		<TextBox BorderBrush="#09244b" BorderThickness="2" Text="{Binding Dr}" Margin="10,10,0,0" Width="150"/>
+		</StackPanel>
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			
+		<Button Background="#09244b" Width="200" Command="{Binding NavigatetoOrganize}" Height="100" CornerRadius="10" HorizontalAlignment="Center" Margin="10">
+			<Button.Styles>
+				<Style>
+					<Style.Resources>
+						<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+					</Style.Resources>
+				</Style>
+			</Button.Styles>
+			<TextBlock Foreground="#ccc3da" Text="Назад" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontFamily="Arial"/>
+		</Button>
+			<Button Background="#09244b" Width="200" Command="{Binding UpdateData}" Height="100" CornerRadius="10" HorizontalAlignment="Center" Margin="10">
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+				<TextBlock Foreground="#ccc3da" Text="Сохранить" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" FontFamily="Arial"/>
+			</Button>
+		</StackPanel>
+	</StackPanel>
+</UserControl>

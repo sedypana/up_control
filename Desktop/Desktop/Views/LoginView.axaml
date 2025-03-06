@@ -1,0 +1,49 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:v="using:Desktop.Views"
+			 xmlns:vm="using:Desktop.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="800"
+             x:Class="Desktop.Views.LoginView"
+			 x:DataType="vm:LoginViewModel"
+			 Background="#ccc3da">
+	<StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+		
+	<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+		<TextBlock Foreground="#09244b" Text="Авторизация" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
+		<StackPanel Margin="15">
+			<TextBox Width="200" Watermark="E-mail" Margin="10" Text="{Binding EmailUser}" BorderBrush="#09244b" BorderThickness="2"/>
+			<TextBox Width="200" Watermark="Password" Text="{Binding PasswordUser}" BorderBrush="#09244b" BorderThickness="2"/>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Foreground="#09244b" Text="{Binding Captcha_gen}" Margin="10" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+			<TextBox Watermark="captcha" Text="{Binding Captcha}" Width="200" BorderBrush="#09244b" BorderThickness="2" />
+			<TextBlock Foreground="#09244b" Text="{Binding Message}" Margin="10" FontSize="20" FontWeight="Bold"/>
+		</StackPanel>
+		<StackPanel>
+	        <Button Background="#09244b"  Command="{Binding Login}" HorizontalAlignment="Center" Width="200" Height="50" Margin="5" BorderThickness="8">
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+				<TextBlock Foreground="#ccc3da" Text="Вход" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+			</Button>
+	        <Button Background="#09244b"  Command="{Binding NavigatetoMain}" HorizontalAlignment="Center" Width="200" Height="50" BorderThickness="8">
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+				<TextBlock Foreground="#ccc3da" Text="Назад" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"/>
+			</Button>
+		</StackPanel>
+		
+	</StackPanel>
+	</StackPanel>
+</UserControl>

@@ -1,0 +1,86 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:v="using:Desktop.Views"
+			 xmlns:m="using:Desktop.Models"
+			 xmlns:vm="using:Desktop.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="1366" d:DesignHeight="800"
+             x:Class="Desktop.Views.MainView"
+			 x:DataType="vm:MainViewModel"
+			 x:Name="Main">
+	<Grid Background="#ccc3da">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+			<TextBlock Foreground="#09244b" Text="Список мероприятий" FontSize="25" Margin="300,0,0,0" VerticalAlignment="Center" FontWeight="Bold"/>
+		</StackPanel>
+
+		<StackPanel Margin="10" Orientation="Horizontal" VerticalAlignment="Center">
+			<Button Background="#09244b" Width="130" Height="50" IsVisible="{Binding Enabled}" IsEnabled="{Binding Enabled}" HorizontalAlignment="Right" Command="{Binding NavigatetoLogin}">
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+				<TextBlock Foreground="#ccc3da" Text="Войти" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>	
+			</Button>
+			<Button Background="#09244b" Content="Мой профиль" IsVisible="{Binding Enabled2}" Width="130" Height="50" IsEnabled="{Binding Enabled2}" Margin="40,0,0,0" HorizontalAlignment="Right" Command="{Binding NavigatetoOrganize}">
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+				<TextBlock Foreground="#ccc3da" Text="Мой профиль" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+			</Button>
+			</StackPanel>
+
+		<Grid Grid.Row="1" Margin="10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="auto"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+
+			<StackPanel Grid.Column="0" Width="300" Margin="0,0,10,0">
+				<TextBlock Foreground="#09244b" Text="Фильтр по дате:" Margin="0,10,0,0"/>
+				<DatePicker Name="DateFilter" Margin="0,10,0,0"/>
+				<Button HorizontalAlignment="Center" Width="200" Height="70" Background="#09244b" Margin="0,10,0,0">
+					<Button.Styles>
+						<Style>
+							<Style.Resources>
+								<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#7d3750</SolidColorBrush>
+							</Style.Resources>
+						</Style>
+					</Button.Styles>
+					<TextBlock Foreground="#ccc3da" Text="Применить" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</Button>
+			</StackPanel>
+			<ListBox ItemsSource="{Binding Events}" Grid.Column="1" Name="EventsList" Background="#09244b">
+				<ListBox.ItemTemplate >
+					<DataTemplate >
+						<Border BorderThickness="1" BorderBrush="Black" Margin="5" Padding="10">
+							<StackPanel Orientation="Horizontal">
+								<StackPanel>
+									<Image Source="{Binding Photo_Image}" Width="100" Height="100"/>
+
+								</StackPanel>
+								<StackPanel Margin="10">
+									<TextBlock Text="{Binding Name}" FontWeight="Bold"/>
+									<TextBlock Text="{Binding DateStart, StringFormat=Дата начала: {0}}"/>
+									<TextBlock Text="{Binding City, StringFormat=Количество дней: {0}}"/>
+								</StackPanel>
+							</StackPanel>
+						</Border>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Grid>
+	</Grid>
+</UserControl>

@@ -1,0 +1,136 @@
+create table Countries(
+id_country int primary key,
+name_country text not null,
+name_country_eng text not null,
+code varchar(5) not null,
+code2 int not null
+)
+
+
+create table Cities(
+id_city int primary key,
+name_city text not null,
+photo_city text
+)
+
+create table Genders(
+id_gender int primary key,
+name_gender varchar(10) not null
+)
+
+create table Napravlenie(
+id_napravleniya int primary key not null,
+name text not null
+)
+
+create table Events(
+id_event int primary key not null,
+name text not null,
+date_start timestamp not null,
+days int,
+city int references Cities(id_city)
+)
+
+create table Events_name(
+id_event int primary key not null,
+name_event text not null
+)
+
+create table Participants(
+id_participants int primary key,
+name_first text not null,
+name_last text not null,
+patronymic text not null,
+email text not null,
+dr timestamp not null,
+id_country int references Countries(id_country),
+number_phone text not null,
+password text not null,
+photo text not null,  
+id_gender int references Genders(id_gender),
+id_role int references roles(id_role)
+)
+
+create table Organizers(
+id_organizer int primary key,
+name_first text not null,
+name_last text not null,
+patronymic text not null,
+email text not null,
+dr timestamp not null,
+id_country int references Countries(id_country),
+number_phone text not null,
+password text not null,
+photo text not null,
+id_gender int references Genders(id_gender),
+id_role int references roles(id_role)
+)
+
+create table Juri(
+id_juri int primary key,
+name_first text not null,
+name_last text not null,
+patronymic text not null,
+id_gender int references Genders(id_gender),
+email text not null,
+dr timestamp not null,
+id_country int references Countries(id_country),
+number_phone text not null,
+id_napravleniya int references Napravlenie(id_napravleniya),
+password text not null,
+foto text not null,
+id_role int references roles(id_role)
+)
+
+create table Moders(
+id_modera int primary key,
+name_first text not null,
+name_last text not null,
+patronymic text not null,
+id_gender int references Genders(id_gender),
+email text not null,
+dr timestamp not null,
+id_country int references Countries(id_country),
+number_phone text not null,
+id_napravleniya int references Napravlenie(id_napravleniya),
+id_event int references Events_name(id_event),
+password text not null,
+foto text not null,
+id_role int references roles(id_role)
+)
+
+create table Activity(
+id_activity int primary key,
+name_activity text not null,
+juri1 int references Juri(id_juri),
+juri2 int references Juri(id_juri),
+juri3 int references Juri(id_juri),
+juri4 int references Juri(id_juri),
+juri5 int references Juri(id_juri),
+id_moder int references Moders(id_modera),
+days int,
+time_start time
+)
+
+create table activity_event(
+activity int references Activity(id_activity),
+event_id int references Events(id_event)
+)
+
+create table winners(
+id_winner int references Participants(id_participants),
+id_event int references Events(id_event)
+)
+
+create table roles(
+id_role int primary key,
+name_role text not null
+)
+
+
+
+
+
+
+
+
