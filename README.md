@@ -18,6 +18,7 @@
 Что нужно для установки программного обеспечения и как его установить
 
 Наличие [Microsoft Visual Studio 2022 Community](https://visualstudio.microsoft.com/ru/vs/community)
+Наличие [БД DBeaver](https://dbeaver.io/download/)
 
 ### Установка
 
@@ -28,7 +29,7 @@ git init
 ```
 
 ```
-git clone https://github.com/sedypana/REG_MARK_LIB.git
+git clone https://github.com/sedypana/up_control.git
 ```
 
 ## Авторы
