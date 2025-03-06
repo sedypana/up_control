@@ -14,7 +14,7 @@
 
 Что нужно для установки программного обеспечения и как его установить
 
-Наличие [Microsoft Visual Studio 2022 Community](https://visualstudio.microsoft.com/ru/vs/community)
+Наличие [Microsoft Visual Studio 2022 Community](https://visualstudio.microsoft.com/ru/vs/community) <br>
 Наличие [БД DBeaver](https://dbeaver.io/download/)
 
 ### Установка
